@@ -15,7 +15,7 @@
     font-size: 3vh;
     font-family: Papyrus;
     display: block;
-    margin: 5vh auto;
+    margin: 2vh auto;
     text-align: center;
 }
 
@@ -24,7 +24,7 @@
     height: 2vh;
 }
 
-.AddForm button {
+.SubmitButton {
     font-size: 3vh;
     font-family: Papyrus;
     display: inline-block;
@@ -34,10 +34,23 @@
     border-radius: 3vw;
     background-color: white;
     box-shadow: -8px 8px 7px 0px rgba(66, 68, 90, 1);
-    transition-duration: 0.8s;
 }
 
-.AddForm button:hover {
+.SubmitButton:hover {
+    transition: 0.8s;
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.ExitButton {
+    display: flex;
+    float: right;
+    text-decoration: none;
+    border: none;
+    background-color: #f5f7fb;
+    font-size: 1.5vh;
+}
+
+.ExitButton:hover {
+    cursor: pointer;
 }
