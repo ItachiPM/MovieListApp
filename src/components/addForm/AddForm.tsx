@@ -17,6 +17,11 @@ export const AddForm = () => {
     return <div className='AddForm' style={{visibility: visible}}>
         <form>
             <label>
+                <select name="" id="">
+                    <option value=""></option>
+                </select>
+            </label>
+            <label>
                 Title <br/>
                 <input type="text"/>
             </label>
