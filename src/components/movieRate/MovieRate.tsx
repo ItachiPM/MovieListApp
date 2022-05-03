@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {StarRatingReadOnly} from "../starRating/StarRatingReadOnly";
 
 import './MovieRate.css'
@@ -13,8 +13,13 @@ export const MovieRate = (props: Props) => {
     const {index, title, rate} = props
 
     return <div className='MovieRate'>
-        <div>{index}</div>
-        <div>{title}</div>
-        <div><StarRatingReadOnly rating={rate}/></div>
-    </div>
+        <div className='Number'>{index}</div>
+        <div className='TitleAndRating'>
+            <div className='Title'>{title}</div>
+            <div className='Rating'><StarRatingReadOnly rating={rate}/></div>
+        </div>
+        <div className='Edit'>
+            <button className='EditButton'>Edit</button>
+        </div>
+        </div>
 }
