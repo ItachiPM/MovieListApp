@@ -1,0 +1,9 @@
+.star {
+    display: inline;
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+.starRating {
+    margin-top: 2vh;
+}
