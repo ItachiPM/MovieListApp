@@ -1,11 +1,28 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import './MovieType.css'
+import {useDispatch, useSelector} from "react-redux";
+import {setGenre, setGenreArray} from "../../features/addMovie/addMovie-slice";
+import {RootState} from "../../features/store";
 
 export const MovieType = () => {
+    const dispatch = useDispatch();
+    const {genreArray, genre} = useSelector((store: RootState) => store.addMovie)
+
+    useEffect(() => {
+        fetchApi();
+    }, [])
+
+    const fetchApi = async () => {
+        const res = await fetch('http://localhost:3001/genre')
+        dispatch(setGenreArray(await res.json()));
+    }
+
+    const onHandleGenre = (e: string) => {
+        dispatch(setGenre(e))
+    }
+
     return <div className='MovieType'>
-        <button className='MovieTypeButton'>Drama</button>
-        <button className='MovieTypeButton'>Thriller</button>
-        <button className='MovieTypeButton'>Action</button>
+        {genreArray.map(genre => <button key={genre} onClick={() => onHandleGenre(genre)} className='MovieTypeButton'>{genre}</button>)}
     </div>
 }
