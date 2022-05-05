@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 
 import './MovieType.css'
 import {useDispatch, useSelector} from "react-redux";
@@ -7,7 +7,7 @@ import {RootState} from "../../features/store";
 
 export const MovieType = () => {
     const dispatch = useDispatch();
-    const {genreArray, genre} = useSelector((store: RootState) => store.addMovie)
+    const {genreArray} = useSelector((store: RootState) => store.addMovie)
 
     useEffect(() => {
         fetchApi();
