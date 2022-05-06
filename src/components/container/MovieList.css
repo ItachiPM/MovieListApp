@@ -1,7 +1,7 @@
 .MovieList {
-    width: 50vw;
-    height: 75vh;
+    float: left;
+    width: 55vw;
+    height: 80vh;
     margin-top: 6%;
-    margin-left: 5%;
     border-radius: 10px;
 }

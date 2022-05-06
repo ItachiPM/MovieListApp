@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {RootState, store} from "../../features/store";
+import {RootState} from "../../features/store";
 import {MovieRate} from "../movieRate/MovieRate";
 import {Spinner} from "../common/Spinner/Spinner";
 import {MovieEntity} from 'types'
@@ -14,11 +14,10 @@ export const MovieList = () => {
 
     useEffect(() => {
         fetchApi();
-    }, [genre])
+    }, [genre, movies])
 
 
     const fetchApi = async () => {
-        setMovies(null)
         const res = await fetch('http://localhost:3001/movie/list', {
             method: 'POST',
             headers: {

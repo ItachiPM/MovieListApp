@@ -15,7 +15,7 @@ export const MovieRate = (props: Props) => {
     return <div className='MovieRate'>
         <div className='Number'>{index}</div>
         <div className='TitleAndRating'>
-            <div className='Title'>{title}</div>
+            <div className='MovieRateTitle'>{title}</div>
             <div className='Rating'><StarRatingReadOnly rating={rate}/></div>
         </div>
         <div className='Edit'>
