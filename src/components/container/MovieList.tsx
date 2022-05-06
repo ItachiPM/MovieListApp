@@ -5,6 +5,7 @@ import {MovieEntity} from 'types'
 import './MovieList.css'
 import {useSelector} from "react-redux";
 import {RootState} from "../../features/store";
+import {Spinner} from "../common/Spinner/Spinner";
 
 export const MovieList = () => {
     const [movies, setMovies] = useState<MovieEntity[]>([])
@@ -12,11 +13,11 @@ export const MovieList = () => {
 
     useEffect(() => {
         fetchApi();
-    }, [movies])
+    }, [genre])
 
     const fetchApi = async () => {
-        const res = await fetch('http://localhost:3001/movie', {
-            method: 'GET',
+        const res = await fetch('http://localhost:3001/movie/list', {
+            method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
@@ -27,6 +28,8 @@ export const MovieList = () => {
         const data = await res.json()
         setMovies(data)
     }
+
+    console.log(movies)
 
 
 
