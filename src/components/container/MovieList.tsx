@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {RootState} from "../../features/store";
-import {MovieRate} from "../movieRate/MovieRate";
+import {EditMovie} from "../movieRate/EditMovie";
 import {Spinner} from "../common/Spinner/Spinner";
 import {MovieEntity} from 'types'
 
@@ -9,8 +9,8 @@ import './MovieList.css'
 
 
 export const MovieList = () => {
-    const [movies, setMovies] = useState<MovieEntity[] | null>(null)
     const {genre} = useSelector((store: RootState) => store.addMovie)
+    const [movies, setMovies] = useState<MovieEntity[] | null>(null)
 
     useEffect(() => {
         fetchApi();
@@ -36,11 +36,14 @@ export const MovieList = () => {
     }
 
     return <div className='MovieList'>
-        {movies.map(movie => <MovieRate
+        {movies.map(movie => <EditMovie
             key={movie.id}
+            id={movie.id as string}
             index={movies.indexOf(movie) + 1}
             rate={movie.rate}
-            title={movie.title}/>)}
+            title={movie.title}
+            genre={movie.genre}
+        />)}
     </div>
 
 }

@@ -29,7 +29,6 @@ export const AddForm = () => {
         e.preventDefault()
 
         try {
-            console.log(form)
             const res = await fetch('http://localhost:3001/movie', {
                 method: 'POST',
                 headers: {
@@ -47,7 +46,6 @@ export const AddForm = () => {
         } finally {
 
         }
-
     }
 
     return <div className='AddForm' style={{visibility: visible}}>
@@ -76,7 +74,6 @@ export const AddForm = () => {
                     name='movieRating'
                     rating={form.rate}
                     onHandleStarRating={onHandleStarRating}
-                    onlyRead
                 />
             </label>
             <button
