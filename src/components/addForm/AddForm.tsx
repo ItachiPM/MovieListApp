@@ -1,48 +1,88 @@
-import React, {useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../features/store";
 import {StarRating} from "../starRating/StarRating";
+import {setGenre, setVisibility} from "../../features/addMovie/addMovie-slice";
+import {MovieEntity} from "types";
 
 import './AddForm.css';
-import {setVisibility} from "../../features/addMovie/addMovie-slice";
+
 
 export const AddForm = () => {
     const dispatch = useDispatch()
-    const {visible} = useSelector((store: RootState) => store.addMovie)
-    const [selected, setSelected] = useState('Select')
-    const [rate, setRate] = useState<number>(0)
+    const {visible, genreArray} = useSelector((store: RootState) => store.addMovie)
+
+    const [form, setForm] = useState<MovieEntity>({
+        title: '',
+        rate: 0,
+        genre: 'Selected',
+    })
 
     const onHandleStarRating = (e: number) => {
-        setRate(e)
+        setForm({
+            ...form,
+            rate: e,
+        })
     }
 
+    const sendForm = async (e: FormEvent) => {
+        e.preventDefault()
+
+        try {
+            const res = await fetch('http://localhost:3001/movie', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            });
+
+            setForm({
+                title: '',
+                rate: 0,
+                genre: 'Selected',
+            })
+            dispatch(setGenre(form.genre));
+        } finally {
+
+        }
+    }
 
     return <div className='AddForm' style={{visibility: visible}}>
-        <button className='ExitButton' onClick={() => dispatch(setVisibility('hidden'))} >x</button>
-        <form>
+        <button className='ExitButton' onClick={() => dispatch(setVisibility('hidden'))}>x</button>
+        <form onSubmit={sendForm}>
             <label>
                 Type <br/>
-                <select value={selected} onChange={e => setSelected(e.target.value)}>
-                    <option value="select">select</option>
-                    <option value="drama">Drama</option>
-                    <option value="comedy">comedy</option>
-                    <option value="action">action</option>
+                <select value={form.genre} onChange={e => setForm({
+                    ...form,
+                    genre: e.target.value,
+                })}>
+                    <option value="select">Select</option>
+                    {genreArray.map(genre => <option key={genre} value={genre}>{genre}</option>)}
                 </select>
             </label>
             <label>
                 Title <br/>
-                <input type="text"/>
+                <input value={form.title} onChange={e => setForm({
+                    ...form,
+                    title: e.target.value,
+                })} type="text"/>
             </label>
             <label>
                 Rate
                 <StarRating
                     name='movieRating'
-                    rating={rate}
+                    rating={form.rate}
                     onHandleStarRating={onHandleStarRating}
-                    onlyRead
                 />
             </label>
-            <button className='SubmitButton' type='submit'>Add</button>
+            <button
+                className='SubmitButton'
+                type='submit'
+                onClick={() => {
+                    dispatch(setVisibility('hidden'));
+                }}
+            >Add</button>
         </form>
     </div>
 }
