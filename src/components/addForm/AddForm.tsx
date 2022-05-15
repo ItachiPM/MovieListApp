@@ -37,15 +37,19 @@ export const AddForm = () => {
                 body: JSON.stringify(form),
             });
 
+            console.log(res)
+
             setForm({
                 title: '',
                 rate: 0,
                 genre: 'Selected',
             })
             dispatch(setGenre(form.genre));
-        } finally {
 
+        } catch (err) {
+            console.log(err)
         }
+
     }
 
     return <div className='AddForm' style={{visibility: visible}}>
