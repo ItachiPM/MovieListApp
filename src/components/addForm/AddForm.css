@@ -5,7 +5,7 @@
     width: 40%;
     height: 50%;
     background-color: #f5f7fb;
-    box-shadow: -9px 10px 15px 0px rgba(66, 68, 90, 1);
+    box-shadow: -9px 10px 15px 0 rgba(66, 68, 90, 1);
     border-radius: 10px;
     margin: auto;
     text-align: center;
@@ -13,7 +13,7 @@
 
 .AddForm label {
     font-size: 3vh;
-    font-family: Papyrus;
+    font-family: Papyrus, sans-serif;
     display: block;
     margin: 2vh auto;
     text-align: center;
@@ -26,20 +26,18 @@
 
 .SubmitButton {
     font-size: 3vh;
-    font-family: Papyrus;
+    font-family: Papyrus, sans-serif;
     display: inline-block;
     margin: auto;
     width: 6vw;
     height: 6vh;
     border-radius: 3vw;
     background-color: white;
-    box-shadow: -8px 8px 7px 0px rgba(66, 68, 90, 1);
+    box-shadow: -8px 8px 7px 0 rgba(66, 68, 90, 1);
 }
 
 .SubmitButton:hover {
-    transition: 0.8s;
     cursor: pointer;
-    transform: scale(1.1);
 }
 
 .ExitButton {
