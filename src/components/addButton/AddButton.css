@@ -1,17 +1,16 @@
 .AddButton {
-    margin-top: 3vh;
-    position: relative;
+    margin-top: 2%;
     transition-duration: 0.8s;
-    left: 30%;
+    position: relative;
+    left: 40%;
     width: 20vw;
     height: 6vh;
     border: 1px solid black;
     border-radius: 3vw;
     background-color: #f5f7fb;
-    box-shadow: -8px 8px 7px 0px rgba(66, 68, 90, 1);
-    font-family: Papyrus;
-    text-align: center;
-    font-size: 4vh;
+    box-shadow: -8px 8px 7px 0 rgba(66, 68, 90, 1);
+    font-family: Papyrus, sans-serif;
+    font-size: 250%;
 }
 
 .AddButton:hover {

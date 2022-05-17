@@ -1,12 +1,11 @@
 import React, {FormEvent, useState} from "react";
 import {StarRatingReadOnly} from "../starRating/StarRatingReadOnly";
 
-import './EditMovie.css'
+import './MovieRate.css'
 import {ListGenre} from "../ListGenre/ListGenre";
 import {StarRating} from "../starRating/StarRating";
     import {MovieEditReqEntity} from "types";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../features/store";
+import {useDispatch} from "react-redux";
 import {setGenre} from "../../features/addMovie/addMovie-slice";
 
 interface Props {
@@ -17,7 +16,7 @@ interface Props {
     genre: string;
 }
 
-export const EditMovie = (props: Props) => {
+export const MovieRate = (props: Props) => {
     const dispatch = useDispatch()
     const {index, title, rate, id, genre} = props
     const [editForm, setEditForm] = useState<MovieEditReqEntity>({

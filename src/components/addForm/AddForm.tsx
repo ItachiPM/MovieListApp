@@ -43,9 +43,16 @@ export const AddForm = () => {
                 genre: 'Selected',
             })
             dispatch(setGenre(form.genre));
-        } finally {
+            dispatch(setVisibility('hidden'))
 
+        } catch (err) {
+            let error
+            if(err instanceof Error) {
+                error = err.message
+            }
+            console.log(error)
         }
+
     }
 
     return <div className='AddForm' style={{visibility: visible}}>
@@ -79,9 +86,6 @@ export const AddForm = () => {
             <button
                 className='SubmitButton'
                 type='submit'
-                onClick={() => {
-                    dispatch(setVisibility('hidden'));
-                }}
             >Add</button>
         </form>
     </div>
