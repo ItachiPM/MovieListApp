@@ -43,6 +43,7 @@ export const AddForm = () => {
                 genre: 'Selected',
             })
             dispatch(setGenre(form.genre));
+<<<<<<< HEAD
             dispatch(setVisibility('hidden'))
 
         } catch (err) {
@@ -51,8 +52,11 @@ export const AddForm = () => {
                 error = err.message
             }
             console.log(error)
-        }
+=======
+        } finally {
 
+>>>>>>> parent of 06a053f (improve css style)
+        }
     }
 
     return <div className='AddForm' style={{visibility: visible}}>
