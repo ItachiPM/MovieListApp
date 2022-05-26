@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {RootState} from "../../features/store";
-import {MovieRate} from "../movieRate/MovieRate";
+import {EditMovie} from "../movieRate/EditMovie";
 import {Spinner} from "../common/Spinner/Spinner";
 import {MovieEntity} from 'types'
 
@@ -36,7 +36,7 @@ export const MovieList = () => {
     }
 
     return <div className='MovieList'>
-        {movies.map(movie => <MovieRate
+        {movies.map(movie => <EditMovie
             key={movie.id}
             id={movie.id as string}
             index={movies.indexOf(movie) + 1}

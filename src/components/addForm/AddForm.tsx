@@ -37,20 +37,17 @@ export const AddForm = () => {
                 body: JSON.stringify(form),
             });
 
+            console.log(res)
+
             setForm({
                 title: '',
                 rate: 0,
                 genre: 'Selected',
             })
             dispatch(setGenre(form.genre));
-            dispatch(setVisibility('hidden'))
 
         } catch (err) {
-            let error
-            if(err instanceof Error) {
-                error = err.message
-            }
-            console.log(error)
+            console.log(err)
         }
 
     }
@@ -86,6 +83,9 @@ export const AddForm = () => {
             <button
                 className='SubmitButton'
                 type='submit'
+                onClick={() => {
+                    dispatch(setVisibility('hidden'));
+                }}
             >Add</button>
         </form>
     </div>
