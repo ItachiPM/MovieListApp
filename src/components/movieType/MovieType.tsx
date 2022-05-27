@@ -19,10 +19,13 @@ export const MovieType = () => {
     }
 
     const onHandleGenre = (e: string) => {
-        dispatch(setGenre(e))
+        dispatch(setGenre(e));
     }
 
     return <div className='MovieType'>
-        {genreArray.map(genre => <button key={genre} onClick={() => onHandleGenre(genre)} className='MovieTypeButton'>{genre}</button>)}
+        {genreArray.map(genre => <button
+            key={genre} id={genre} onClick={() => {
+            onHandleGenre(genre)
+        }} className='MovieTypeButton'>{genre}</button>)}
     </div>
 }

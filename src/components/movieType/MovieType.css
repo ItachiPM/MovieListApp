@@ -1,19 +1,15 @@
 .MovieTypeButton {
-    display: block;
     margin-top: 3vh;
     width: 20vw;
     height: 6vh;
     border: 1px solid black;
     border-radius: 3vw;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    background: white;
-    box-shadow: -8px 8px 7px 0px rgba(66, 68, 90, 1);
+    background-color: white;
+    box-shadow: -8px 8px 7px 0 rgba(66, 68, 90, 1);
     transition-duration: 0.8s;
-    font-size: 4vh;
-    font-family: Papyrus;
-    text-align: center;
+    font-size:  170%;
+    font-weight: 500;
+    font-family: Papyrus, sans-serif;
 }
 
 .MovieTypeButton:hover {
