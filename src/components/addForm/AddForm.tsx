@@ -43,19 +43,8 @@ export const AddForm = () => {
                 genre: 'Selected',
             })
             dispatch(setGenre(form.genre));
-<<<<<<< HEAD
-            dispatch(setVisibility('hidden'))
-
-        } catch (err) {
-            let error
-            if(err instanceof Error) {
-                error = err.message
-            }
-            console.log(error)
-=======
         } finally {
 
->>>>>>> parent of 06a053f (improve css style)
         }
     }
 
@@ -90,6 +79,9 @@ export const AddForm = () => {
             <button
                 className='SubmitButton'
                 type='submit'
+                onClick={() => {
+                    dispatch(setVisibility('hidden'));
+                }}
             >Add</button>
         </form>
     </div>
