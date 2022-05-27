@@ -1,8 +1,8 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {setVisibility} from "../../features/addMovie/addMovie-slice";
 
 import './AddButton.css'
+import {setVisibility} from "../../features/addMovie/addMovie-slice";
 
 export const AddButton = () => {
     const dispatch = useDispatch();

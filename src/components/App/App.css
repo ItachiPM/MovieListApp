@@ -1,23 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.App {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 80vw;
-}
-
 .Menu {
-    grid-column: 1;
-    margin-left: 20%;
+    float: left;
+    width: 40%;
 }
 
 .Content {
-    grid-column: 2;
-    margin-left: 20%;
-    place-self: center;
+    float: left;
+    width: 60%;
+    align-items: center;
 }
 
 
