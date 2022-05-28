@@ -57,7 +57,7 @@ export const MovieRate = (props: Props) => {
                 },
                 body: JSON.stringify(editForm),
             });
-
+            setVisibleEdit()
             dispatch(setGenre(await res.json()));
         } finally {
 

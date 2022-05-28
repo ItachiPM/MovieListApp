@@ -52,3 +52,11 @@
 .ExitButton:hover {
     cursor: pointer;
 }
+
+small{
+    font-size: 1vh;
+    font-family: sans-serif;
+    color: red;
+    display: block;
+    margin-top: 0;
+}
