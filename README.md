@@ -1,6 +1,6 @@
 # IMPORTANT
 
-to use app you need to biuld backend from MovieListAppBackend
+to use app you need to build backend from MovieListAppBackend
 
 
 # Getting Started with Create React App
